@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>New Restaurant</h1>
+
+  <%= simple_form_for [@restaurant] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+    <%= f.submit "Submit restaurant", class: "btn btn-primary" %>
+  <% end %>
+  <br>
+  <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary" %>
+</div>
